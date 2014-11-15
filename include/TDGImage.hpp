@@ -1,18 +1,52 @@
 #pragma once
 
+#include <stdint.h>
+#include "TDGGlobal.hpp"
 #include <valarray>
 
 namespace TDG {
-  /*
-  template<typename T>
-  class working_buffer {
 
+  class Point
+  {
   private:
-    size_t width;
-    size_t height;
-    std::valarray<T> buf;
+    uintmax_t x;
+    uintmax_t y;
   };
   
+  class Shape
+  {
+    virtual bool is_inside(Point p) = 0;
+  };
+  
+  class Rect
+  {
+  private:
+    uintmax_t x;
+    uintmax_t y;
+    intmax_t  width;
+    intmax_t  height;
+  };
+
+  
+  template<typename T>
+  class working_buffer
+  {
+  public:
+    
+    using value_type = T;
+    using buffer_type = std::valarray<T>;
+
+    working_buffer() : 
+      width(0), height(0), stride(0), buf() {}
+
+  private:
+    uintmax_t   width;
+    uintmax_t   height;
+    intmax_t    stride;
+    buffer_type buf;
+  };
+
+  /*
   class PPMImage {
 
 bool write_ppm(const unsigned char* buf, 
