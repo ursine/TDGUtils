@@ -5,6 +5,7 @@
 #include <fstream>
 #include <vector>
 #include "lcms2.h"
+#include <stdexcept>
 
 class Image
 {
@@ -32,6 +33,28 @@ public:
     tfile.close();
   }
 
+  void readppm(const std::string filename)
+  {
+    std::ifstream tfile;
+    tfile.open(filename, std::ios::in | std::ios::binary);
+    std::string var;
+    
+    tfile >> var;
+    if (var!="P6") throw std::runtime_error("Not a ppm file");
+
+    tfile >> _width;
+    tfile >> _height;
+
+    size_t maxval;
+    tfile >> maxval;
+
+    // Read whitespace
+
+    // read data
+    
+    tfile.close();
+  }
+  
   uintmax_t width() const  { return _width;  }
   uintmax_t height() const { return _height; }
 
