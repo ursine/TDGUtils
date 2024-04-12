@@ -12,11 +12,15 @@ if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" OR
   set(warnings "-Wall -Wextra -Werror")
 endif()
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 add_subdirectory(third_party)
 
-add_executable(demo src/main.cpp)
+add_executable(demo src/main.cpp
+        src/TDGApplication.cpp
+        include/TDGApplication.h
+        include/TDGExceptions.h
+        include/TDGSDLEventsDebugging.h)
 target_compile_features(demo INTERFACE cxx_std_20)
 
 if(TARGET SDL2::SDL2main)
