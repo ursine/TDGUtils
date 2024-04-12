@@ -1,3 +1,4 @@
 *~
-ppmwrite
-*.ppm
+.idea/
+cmake-build-debug/
+*.o
