@@ -6,6 +6,8 @@
 
 #include <SDL.h>
 #include <system_error>
+#include <TDGReflection.h>
+#include <iostream>
 
 //Screen dimension constants
 constexpr int SCREEN_WIDTH = 640;
@@ -28,9 +30,11 @@ public:
         appWindow = SDL_CreateWindow("SDL Tutorial",
                                               SDL_WINDOWPOS_UNDEFINED,
                                               SDL_WINDOWPOS_UNDEFINED,
-                                              SCREEN_WIDTH,
-                                              SCREEN_HEIGHT,
+                                              width,
+                                              height,
                                               SDL_WINDOW_SHOWN);
+
+        std::cout << TDG::internal::get_type_name<decltype(this)>() << std::endl;
 
         if (appWindow== nullptr) {
             throw std::runtime_error(std::string("Window could not be created! SDL_Error: ")+ SDL_GetError());

@@ -5,6 +5,7 @@
 
 #include <SDL.h>
 #include <cstdio>
+#include <iostream>
 #include "TDGApplication.h"
 #include "TDGSDLEventsDebugging.h"
 

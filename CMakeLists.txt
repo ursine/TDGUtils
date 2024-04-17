@@ -20,8 +20,11 @@ add_executable(demo src/main.cpp
         src/TDGApplication.cpp
         include/TDGApplication.h
         include/TDGExceptions.h
-        include/TDGSDLEventsDebugging.h)
+        include/TDGSDLEventsDebugging.h
+        include/TDGReflection.h)
 target_compile_features(demo INTERFACE cxx_std_20)
+
+set_property(TARGET demo PROPERTY CXX_STANDARD 23)
 
 if(TARGET SDL2::SDL2main)
     target_link_libraries(demo PRIVATE SDL2::SDL2main)
