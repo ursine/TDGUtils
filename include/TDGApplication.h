@@ -34,8 +34,6 @@ public:
                                               height,
                                               SDL_WINDOW_SHOWN);
 
-        std::cout << TDG::internal::get_type_name<decltype(this)>() << std::endl;
-
         if (appWindow== nullptr) {
             throw std::runtime_error(std::string("Window could not be created! SDL_Error: ")+ SDL_GetError());
         }

@@ -44,7 +44,7 @@ namespace TDG {
                 SDLCASE(SDL_TEXTEDITING);
                 SDLCASE(SDL_TEXTINPUT);
                 SDLCASE(SDL_KEYMAPCHANGED);
-                SDLCASE(SDL_TEXTEDITING_EXT);
+                //SDLCASE(SDL_TEXTEDITING_EXT);
                 SDLCASE(SDL_MOUSEMOTION);
                 SDLCASE(SDL_MOUSEBUTTONDOWN);
                 SDLCASE(SDL_MOUSEBUTTONUP);
@@ -56,7 +56,7 @@ namespace TDG {
                 SDLCASE(SDL_JOYBUTTONUP);
                 SDLCASE(SDL_JOYDEVICEADDED);
                 SDLCASE(SDL_JOYDEVICEREMOVED);
-                SDLCASE(SDL_JOYBATTERYUPDATED);
+                //SDLCASE(SDL_JOYBATTERYUPDATED);
                 SDLCASE(SDL_CONTROLLERAXISMOTION);
                 SDLCASE(SDL_CONTROLLERBUTTONDOWN);
                 SDLCASE(SDL_CONTROLLERBUTTONUP);
@@ -104,7 +104,7 @@ namespace TDG {
         }
         explicit SDLEventDetails(const SDL_KeyboardEvent* const e) {}
         explicit SDLEventDetails(const SDL_TextEditingEvent* const edit) {}
-        explicit SDLEventDetails(const SDL_TextEditingExtEvent* const editExt) {}
+        //explicit SDLEventDetails(const SDL_TextEditingExtEvent* const editExt) {}
         explicit SDLEventDetails(const SDL_TextInputEvent* const text) {}
         explicit SDLEventDetails(const SDL_MouseMotionEvent* const motion) {}
         explicit SDLEventDetails(const SDL_MouseButtonEvent* const button) {}
@@ -114,7 +114,7 @@ namespace TDG {
         explicit SDLEventDetails(const SDL_JoyHatEvent* const jhat) {}
         explicit SDLEventDetails(const SDL_JoyButtonEvent* const jbutton) {}
         explicit SDLEventDetails(const SDL_JoyDeviceEvent* const jdevice) {}
-        explicit SDLEventDetails(const SDL_JoyBatteryEvent* const jbattery) {}
+        //explicit SDLEventDetails(const SDL_JoyBatteryEvent* const jbattery) {}
         explicit SDLEventDetails(const SDL_ControllerAxisEvent* const caxis) {}
         explicit SDLEventDetails(const SDL_ControllerButtonEvent* const cbutton) {}
         explicit SDLEventDetails(const SDL_ControllerDeviceEvent* const cdevice) {}
