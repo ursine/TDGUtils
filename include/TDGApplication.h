@@ -50,6 +50,13 @@ public:
 
     [[nodiscard]] SDL_Window* window() const {return appWindow;}
 
+    [[nodiscard]] int getHeight() const {return height;}
+    void setHeight(int h) {height = h;}
+    [[nodiscard]] int getWidth() const {return width;}
+    void setWidth(int w) {width = w;}
+
+
     int exec() {return 0;}
 };
 
+extern TDGApplication* tdgApp;

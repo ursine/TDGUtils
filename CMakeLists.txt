@@ -21,7 +21,9 @@ add_executable(demo src/main.cpp
         include/TDGApplication.h
         include/TDGExceptions.h
         include/TDGSDLEventsDebugging.h
-        include/TDGReflection.h)
+        include/TDGReflection.h
+        src/TDGObject.cpp
+        include/TDGObject.h)
 target_compile_features(demo INTERFACE cxx_std_20)
 
 set_property(TARGET demo PROPERTY CXX_STANDARD 23)

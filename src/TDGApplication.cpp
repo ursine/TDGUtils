@@ -3,3 +3,6 @@
 //
 
 #include "TDGApplication.h"
+
+TDGApplication* tdgApp = nullptr;
+
