@@ -13,15 +13,18 @@ TDGObject::TDGObject(TDGObject* const parent, const char* name) : name(name) {
 }
 
 TDGObject::~TDGObject() {
-
+    // Murder the children
+    for(auto itr=std::begin(children); itr!=std::end(children);) {
+        delete *itr;
+        itr = children.erase(itr);
+    }
 }
 
-
-static std::list<TDGObject*> orphanObjects;
-static void insertOrphan(TDGObject* obj) {
-    orphanObjects.push_back(obj);
+void TDGObject::insertChild(TDGObject* const child) {
+    children.push_back(child);
 }
 
-static void removeOrphan(TDGObject* obj) {
-    orphanObjects.remove(obj);
+void TDGObject::removeChild(TDGObject* const child) {
+    children.remove(child);
 }
+
