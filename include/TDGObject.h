@@ -4,6 +4,8 @@
 
 #pragma once
 
+#include "TDGLog.h"
+
 #include <string>
 #include <list>
 
@@ -12,6 +14,8 @@ private:
     std::string name;
 
     std::list<TDGObject*> children;
+
+    static int count;
 
 public:
     explicit TDGObject(TDGObject* parent = nullptr, const char* name = nullptr);

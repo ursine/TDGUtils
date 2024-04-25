@@ -32,7 +32,7 @@ public:
                                               SDL_WINDOWPOS_UNDEFINED,
                                               width,
                                               height,
-                                              SDL_WINDOW_SHOWN);
+                                              SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
 
         if (appWindow== nullptr) {
             throw std::runtime_error(std::string("Window could not be created! SDL_Error: ")+ SDL_GetError());
