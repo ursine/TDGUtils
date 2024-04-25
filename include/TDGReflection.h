@@ -6,6 +6,7 @@
 
 #include <string_view>
 #include <source_location>
+#include <algorithm>
 #include <string>
 #include <array>
 #include <utility>

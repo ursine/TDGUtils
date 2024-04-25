@@ -93,7 +93,9 @@ namespace TDG {
         std::string str() { return ss.str(); }
 
     private:
-        explicit SDLEventDetails(const SDL_CommonEvent* const e) {}
+        explicit SDLEventDetails(const SDL_CommonEvent* const e) {
+            eventObject = "SDL_CommonEvent";
+        }
         explicit SDLEventDetails(const SDL_DisplayEvent* const e) {}
         explicit SDLEventDetails(const SDL_WindowEvent* const e) {
             eventObject = "SDL_WindowEvent";
@@ -101,6 +103,8 @@ namespace TDG {
             ss << " Timestamp: " << e->timestamp;
             ss << " WindowsID: " << e->windowID;
             ss << " Event: " << static_cast<int>(e->event);
+            ss << " Data1: " << e->data1;
+            ss << " Data2: " << e->data2;
         }
         explicit SDLEventDetails(const SDL_KeyboardEvent* const e) {}
         explicit SDLEventDetails(const SDL_TextEditingEvent* const edit) {}
