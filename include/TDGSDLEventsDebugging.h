@@ -95,8 +95,17 @@ namespace TDG {
     private:
         explicit SDLEventDetails(const SDL_CommonEvent* const e) {
             eventObject = "SDL_CommonEvent";
+            ss << "Type: " << e->type;
+            ss << " Timestamp: " << e->timestamp;
         }
-        explicit SDLEventDetails(const SDL_DisplayEvent* const e) {}
+        explicit SDLEventDetails(const SDL_DisplayEvent* const e) {
+            eventObject = "SDL_DisplayEvent";
+            ss << "Type: " << e->type;
+            ss << " Timestamp: " << e->timestamp;
+            ss << " Display: " << e->display;
+            ss << " Event: " << e->event;
+            ss << " Data1: " << e->data1;
+        }
         explicit SDLEventDetails(const SDL_WindowEvent* const e) {
             eventObject = "SDL_WindowEvent";
             ss << "Type: " << e->type;
