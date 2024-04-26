@@ -23,7 +23,7 @@ public:
     }
 
     void info(const std::string& s, const std::source_location loc = std::source_location::current()) {
-        std::cout << "[" << loc.file_name() << ":" << loc.line() << ":" << loc.function_name() << "]" << s << std::endl;
+        std::cout << "[" << loc.file_name() << ":" << loc.line() << ":" << loc.function_name() << "] " << s << std::endl;
     }
 };
 

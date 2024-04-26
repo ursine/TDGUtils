@@ -9,11 +9,13 @@
 #include <string>
 #include <list>
 
+
 class TDGObject {
 private:
     std::string name;
 
     std::list<TDGObject*> children;
+    TDGObject* parent;
 
     static int count;
 
@@ -21,11 +23,12 @@ public:
     explicit TDGObject(TDGObject* parent = nullptr, const char* name = nullptr);
     virtual ~TDGObject();
 
-    [[nodiscard]] const std::string& getName() const {return name;}
-    void setName(const std::string& n) {name = n;}
+    void setName(const char* n) {name = n;}
 
     virtual void insertChild(TDGObject* child);
     virtual void removeChild(TDGObject* child);
 
+    [[nodiscard]] inline std::string getName() const { return name; }
+    [[nodiscard]] inline TDGObject* getParent() const { return parent; }
 };
 

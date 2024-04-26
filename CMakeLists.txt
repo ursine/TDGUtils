@@ -26,7 +26,10 @@ add_executable(demo src/main.cpp
         include/TDGObject.h
         include/TDGWindow.h
         include/TDGLog.h
-        src/TDGLog.cpp)
+        src/TDGLog.cpp
+        include/TDGWidget.h
+        src/TDGWidgetMapping.cpp
+        include/TDGWidgetMapping.h)
 target_compile_features(demo INTERFACE cxx_std_20)
 
 set_property(TARGET demo PROPERTY CXX_STANDARD 23)
