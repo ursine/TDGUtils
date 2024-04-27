@@ -55,7 +55,7 @@ constexpr inline bool operator!=(const StringLiteral<N1>& _first,
 // End StringLiteral ------------------------
 
 template <class T>
-consteval auto get_type_name_str_view() {
+consteval std::string_view get_type_name_str_view() {
     // Unfortunately, we cannot avoid the use of a compiler-specific macro for
     // Clang on Windows. For all other compilers, function_name works as intended.
 #if defined(__clang__) && defined(_MSC_VER)
