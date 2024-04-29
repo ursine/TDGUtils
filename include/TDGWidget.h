@@ -8,7 +8,7 @@
 #include <cstdint>
 #include <SDL_video.h>
 
-enum WidgetFlags : uint32_t {
+enum WidgetLevels : uint32_t {
     WF_NONE      = 0b00000000000000000000000000000000,
     WF_TOP_LEVEL = 0b00000000000000000000000000000001,
 };
@@ -17,9 +17,10 @@ class TDGWidget : public TDGObject {
 private:
     SDL_Window* appWindow = nullptr;
 
+
 public:
     explicit TDGWidget(TDGObject* parent = nullptr, const char* name = nullptr,
-                       const uint32_t flags = WidgetFlags::WF_NONE):
+                       const uint32_t flags = WidgetLevels::WF_NONE):
         TDGObject(parent, name)
     {
         appWindow = SDL_CreateWindow("SDL Tutorial",
@@ -35,11 +36,6 @@ public:
     }
 
     ~TDGWidget() override {
-        INFO("Widget destructor '"+getName()+"'");
-        //Destroy window
-        if (getParent()) {
-            getParent()->removeChild(this);
-        }
         SDL_DestroyWindow(appWindow);
     }
 

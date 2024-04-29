@@ -26,6 +26,13 @@ int main(int argc, char* args[]) {
     auto extra6 = new TDGWidget(&main, "extra6");
     auto extra7 = new TDGWidget(&main, "extra7");
 
+    auto extra8 = new TDGWidget(extra3, "extra8");
+    auto extra9 = new TDGWidget(extra3, "extra9");
+
+    auto extra10 = new TDGWidget(extra8, "extra10");
+
+    std::cout << main.getTree() << std::endl;
+
     app.exec();
 
     /*SDL_Window* window = app.window();

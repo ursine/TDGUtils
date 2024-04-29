@@ -19,20 +19,17 @@ TDGObject::TDGObject(TDGObject* const parent, const char* name) :
 }
 
 TDGObject::~TDGObject() {
-    INFO("Widget destructor '"+name+"' Children "+std::to_string(children.size()));
+    INFO("Object destructor '"+name+"' Children "+std::to_string(children.size())+" of "+std::to_string(count));
     // Murder the children
     int c = 0;
-    for(auto itr=std::begin(children); itr!=std::end(children);) {
-        auto obj = (*itr);
-
-        INFO("Removing "+std::to_string(c++));
-
-        obj->parent = nullptr;
-        delete *itr;
-        itr = children.erase(itr);
-        count--;
-        INFO(std::string("Removed a child ")+std::to_string(count));
+    while(!children.empty()) {
+        delete children.front();
     }
+    count--;
+    if (parent) {
+        parent->removeChild(this);
+    }
+    INFO("Completed destruction of '"+name+"'");
 }
 
 void TDGObject::insertChild(TDGObject* const child) {
