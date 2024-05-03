@@ -39,8 +39,15 @@ public:
 
         SDL_version sdlVersion;
         SDL_VERSION(&sdlVersion);
-        INFO("Initialized SDL Version "+std::to_string(sdlVersion.major)+
+        INFO("Compiled with SDL Version "+std::to_string(sdlVersion.major)+
              "."+std::to_string(sdlVersion.minor)+"."+std::to_string(sdlVersion.patch));
+
+        SDL_GetVersion(&sdlVersion);
+        INFO("Using SDL Version "+std::to_string(sdlVersion.major)+
+             "."+std::to_string(sdlVersion.minor)+"."+std::to_string(sdlVersion.patch));
+
+        const int cpus = SDL_GetCPUCount();
+
     }
 
     ~TDGApplication() {

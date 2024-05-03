@@ -4,6 +4,8 @@ project(demo)
 
 find_package(SDL2 REQUIRED CONFIG REQUIRED COMPONENTS SDL2)
 find_package(SDL2 REQUIRED CONFIG COMPONENTS SDL2main)
+find_package(glfw3 REQUIRED)
+find_package(GLEW REQUIRED)
 
 enable_testing()
 
@@ -35,7 +37,7 @@ target_compile_features(demo INTERFACE cxx_std_20)
 set_property(TARGET demo PROPERTY CXX_STANDARD 23)
 
 if(TARGET SDL2::SDL2main)
-    target_link_libraries(demo PRIVATE SDL2::SDL2main)
+    target_link_libraries(demo PRIVATE SDL2::SDL2main glfw GLEW::glew)
 endif()
 
-target_link_libraries(demo PRIVATE SDL2::SDL2)
+target_link_libraries(demo PRIVATE SDL2::SDL2 glfw GLEW::glew)

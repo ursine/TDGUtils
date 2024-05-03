@@ -10,6 +10,10 @@
 #include "TDGSDLEventsDebugging.h"
 #include "TDGLog.h"
 #include "TDGWidget.h"
+#include <GL/glew.h>
+#include <SDL_opengl.h>
+#include <GL/glu.h>
+#include <string>
 
 int main(int argc, char* args[]) {
 
