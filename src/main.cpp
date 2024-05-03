@@ -21,6 +21,23 @@ int main(int argc, char* args[]) {
 
     INFO("Starting application");
 
+    //Use OpenGL 3.1 core
+    SDL_GL_SetAttribute( SDL_GL_CONTEXT_MAJOR_VERSION, 3 );
+    SDL_GL_SetAttribute( SDL_GL_CONTEXT_MINOR_VERSION, 1 );
+    SDL_GL_SetAttribute( SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE );
+
+    SDL_Window* gWindow = SDL_CreateWindow( "SDL Tutorial",
+                                            SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
+                                            SCREEN_WIDTH, SCREEN_HEIGHT,
+                                            SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN );
+    if( gWindow == nullptr )
+    {
+        printf( "Window could not be created! SDL Error: %s\n", SDL_GetError() );
+        return EXIT_FAILURE;
+    }
+
+
+
     TDGWidget main(nullptr, "main");
     TDGWidget extra1(&main, "extra1");
     auto extra2 = new TDGWidget(&main, "extra2");
